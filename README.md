@@ -25,4 +25,4 @@ python scraping.py
 - Beautiful Soup v4
 
 ## Authors
-Made with :heart: by [@migueling2015](https://github.com/migueling2015), inspired in Platzi's Web Scrapping Course, 2020
+Made with :heart: by [@migueling2015](https://github.com/migueling2015), inspired by Platzi's Web Scrapping Course, 2020
