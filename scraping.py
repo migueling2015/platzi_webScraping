@@ -5,6 +5,8 @@ url='https://www.pagina12.com.ar/'
 
 p12=requests.get(url)
 
+dict_content={}
+
 print('#############################################################################################################')
 print('#############################################################################################################')
 print(p12.status_code)
@@ -22,14 +24,23 @@ print('#########################################################################
 # print(p12.cookies)
 
 s = BeautifulSoup(p12.text, 'html.parser')
-# print(s.prettify())
-arreglo=s.find('ul',attrs={'class':'hot-sections'}).find_all('li')
+arreglo=s.find('li',attrs={'class':'sections'}).find_all('li')
+array_liks_sections=[]
 for i in arreglo:
-    # print('{} -- {} \n'.format(i.find('a').contents[0],i.a.get('href')))
-    print('{} -- {} \n'.format(i.a.contents[0],i.a.get('href')))
-# s.find('ul',attr={'class':'hot-sections'}).find_all('li')
-# s2 = BeautifulSoup(p12.text, 'html5lib')
-# print(s2.prettify())
+    linkSection=i.a.get('href')
+    array_liks_sections.append(linkSection)
+    dict_content[i.a.contents[0]]=[]
+    dict_content[i.a.contents[0]].append(linkSection)
+    print('{} -- {} \n'.format(i.a.contents[0],linkSection))
 
-# print(s)
-# print(type(s))
+
+def extract_url_article(url_in,use_class):
+    p_temp=requests.get(url_in)
+    s_temp = BeautifulSoup(p_temp.text, 'html.parser')
+    array_container=s_temp.find_all('div',attrs={'class':use_class})
+    array_container_resulting=[i.find('h2').find('a').get('href') for i in array_container]
+    print(array_container_resulting)
+
+for section in dict_content:
+    extract_url_article(dict_content[section][0],'featured-article__container')
+    extract_url_article(dict_content[section][0],'article-box__container')
