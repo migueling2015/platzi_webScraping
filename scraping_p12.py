@@ -36,4 +36,17 @@ def scrap_page(url):
 
 
 
+def extract_from_a_list(list_url):
+    list_temp=[]
+    for url in list_url:
+        page_scraping=gears.stablish_connection(url)
+        try:
+            len(page_scraping)
+            gears.connection_record('errors_log.log',page_scraping[0],'noConnection --{}'.format(datetime.timestamp(datetime.now())))
+        except:
+            gears.connection_record('conneceteds_log.log',url,'Connected --{}'.format(datetime.timestamp(datetime.now())))
+            s = BeautifulSoup(page_scraping.text, 'html.parser')
+            list_temp.append(url)
+            list_temp.append(p12.obtain_info(s))
+    return(list_temp)
 
