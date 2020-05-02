@@ -42,6 +42,7 @@ def extract_url_article(url_in,use_class):
     print(array_container_resulting)
 
 for section in dict_content:
-    print('\n{}'.format(dict_content[section][0]))
+    print('\n{}'.format(section))
+    print('{}'.format(dict_content[section][0]))
     extract_url_article(dict_content[section][0],'featured-article__container')
     extract_url_article(dict_content[section][0],'article-box__container')
