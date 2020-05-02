@@ -17,12 +17,12 @@ pip install requests
 ```
 4. Run the script
 ```
-python scraping.py
+python webs_scrapping.py
 ```
 
 ## Dependencies
 - Python 3.6 or higher
-- Beautiful Soup v4
+- Beautifulsoup4
 
 ## Authors
 Made with :heart: by [@migueling2015](https://github.com/migueling2015), inspired by Platzi's Web Scrapping Course, 2020
