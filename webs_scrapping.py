@@ -4,7 +4,10 @@ import functions_gears as gears
 import scraping_p12_gears as p12
 import scraping_p12 as scrap
 from datetime import datetime
-import winsound
+try:
+    import winsound
+except:
+    pass
 
 
 
