@@ -27,24 +27,27 @@ if __name__ == '__main__':
 
     array_data.append(scrap.extract_from_a_list(dic_p12['El país'][2]))
 
+    print(scrap.extract_from_a_list(dic_p12['El país'][2]))
 
 
-    print(array_data)
-    file_content_reg=open('{}----Content.txt'.format(datetime.timestamp(datetime.now())),'a')
-    for nivel1 in array_data:
-        print(nivel1)
-
+    # print(array_data)
+    file_content_reg=open('{}----Content.txt'.format(datetime.timestamp(datetime.now())),'w')
+   
+        
     file_content_reg.close()
 
-    frequency = 4000  # Set Frequency To 2500 Hertz
-    duration = 25  # Set Duration To 1000 ms == 1 second
-    winsound.Beep(frequency, duration)
-
-    frequency = 2500  # Set Frequency To 2500 Hertz
-    winsound.Beep(frequency, duration)
-
-    frequency = 1500  # Set Frequency To 2500 Hertz
-    winsound.Beep(frequency, duration)
-
-    frequency = 500  # Set Frequency To 2500 Hertz
-    winsound.Beep(frequency, duration)
+    
+    frequency = 5000  # Set Frequency To 2500 Hertz
+    duration = 20  # Set Duration To 1000 ms == 1 second
+    
+    try:
+        winsound.Beep(frequency, duration)
+        frequency = 2500  # Set Frequency To 2500 Hertz
+        winsound.Beep(frequency, duration)
+        frequency = 1500  # Set Frequency To 2500 Hertz
+        winsound.Beep(frequency, duration)
+        frequency = 500  # Set Frequency To 2500 Hertz
+        duration = 960
+        winsound.Beep(frequency, duration)
+    except:
+        print('TERMIANDO')
